@@ -1,0 +1,84 @@
+<div class="login_page">
+  <div class="login_content">
+    <h1>เข้าสู่ระบบ</h1>
+    <h3>ระบบจัดการห้องพัก</h3>
+
+    <form
+      autocomplete="off"
+      (ngSubmit)="onLoginSubmit()"
+      [formGroup]="formLogin"
+    >
+      <div class="field">
+        <label class="label">
+          ชื่อผู้ใช้งาน <span class="has-text-danger">*</span>
+        </label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input is-primary"
+            type="text"
+            placeholder="Username"
+            formControlName="username"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">
+          รหัสผ่าน <span class="has-text-danger">*</span>
+        </label>
+        <div class="control has-icons-left has-icons-right">
+          <input
+            class="input is-primary"
+            type="text"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-key"></i>
+          </span>
+        </div>
+      </div>
+      <div class="_button">
+        <button
+          class="button is-primary is-inverted"
+          type="button"
+          (click)="_modal.open('forgot_password')"
+        >
+          ลืมรหัสผ่าน ?
+        </button>
+        <button
+          class="button is-primary"
+          type="submit"
+          [disabled]="formLogin.invalid"
+        >
+          เข้าสู่ระบบ
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="forgot_password">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Modal title</p>
+      <button
+        class="delete"
+        aria-label="close"
+        (click)="_modal.close('forgot_password')"
+      ></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Save changes</button>
+      <button class="button" (click)="_modal.close('forgot_password')">
+        Cancel
+      </button>
+    </footer>
+  </div>
+</div>

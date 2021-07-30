@@ -1,0 +1,46 @@
+.login_page {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding: 15px;
+
+  .login_content {
+    display: inline-block;
+    height: 420px;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
+    overflow: hidden;
+
+    h1 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    form {
+      display: inline-block;
+      max-width: 400px;
+      width: 100%;
+      text-align: left;
+
+      .field:first-child {
+        margin-top: 50px;
+      }
+
+      ._button {
+        text-align: right;
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) and (min-height: 420px) {
+  .login_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

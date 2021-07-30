@@ -1,3 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
 @import url("./_reset.scss");
+
+.ng-invalid.ng-dirty.input {
+  border-color: #f14668;
+}
+
+.ng-invalid.ng-dirty.input:active,
+.ng-invalid.ng-dirty.input:focus {
+  box-shadow: 0 0 0 0.125em #f1466840;
+}
+
+.ng-valid.ng-dirty.input {
+  border-color: #48c78e;
+}
+
+.ng-valid.ng-dirty.input:active,
+.ng-valid.ng-dirty.input:focus {
+  box-shadow: 0 0 0 0.125em #48c78e40;
+}
