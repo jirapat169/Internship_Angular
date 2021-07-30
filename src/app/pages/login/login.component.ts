@@ -9,11 +9,20 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   public formLogin: FormGroup;
+  public formForgotpasswotd: FormGroup;
 
   constructor(private fb: FormBuilder, public _modal: ModalService) {
     this.formLogin = this.fb.group({
       username: ['', [Validators.required, Validators.pattern(/^[\w\.]+$/)]],
       password: ['', [Validators.required, Validators.pattern(/^[\w\.]+$/)]],
+    });
+
+    this.formForgotpasswotd = this.fb.group({
+      username: [''],
+      firstname: [''],
+      lastname: [''],
+      personal_id: [''],
+      phone: [''],
     });
   }
 
@@ -23,5 +32,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public onLoginSubmit = (): void => {
     console.log(this.formLogin.value);
+  };
+
+  public onForgotpassword = (): void => {
+    console.log(this.formForgotpasswotd.value);
   };
 }
