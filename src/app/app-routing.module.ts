@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: NavigationComponent, children: [] },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginModule),
+      import('./features/auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: '',
+    component: NavigationComponent,
+    canActivate: [AuthGuard],
+    children: [],
+  },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
